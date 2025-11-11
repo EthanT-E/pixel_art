@@ -62,6 +62,7 @@ def define_butterfly():
         image_mat[11, i*1+c] = black
         
         # fill in the centre line by line
+
         image_mat[3, [i*j+c for j in [4, 5]]] = blue
         image_mat[4, [i*j+c for j in range(2,7)]] = blue
         image_mat[5:7, [i*j+c for j in range(1,7)]] = blue
@@ -71,7 +72,7 @@ def define_butterfly():
         image_mat[10, [i*j+c for j in range(1,6)]] = blue
         image_mat[11, [i*j+c for j in range(2,6)]] = blue
         image_mat[12, [i*j+c for j in range(3,5)]] = blue
-    
+
     return image_mat
 
 
