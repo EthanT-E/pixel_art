@@ -21,7 +21,15 @@ def define_smile():
     image_mat[4:6, 5:11] = cyan
     image_mat[3, 6:10] = cyan
     pink = [1, 0.753, 0.796]
+<<<<<<< HEAD
+<<<<<<< HEAD
+    grey = [0.076] * 3
+=======
+    grey = [0.05] * 3
+>>>>>>> 2cd76ea7bedc05ba330127f73b5cb2ac7b2c22ee
+=======
     brown = [0.74,0.65,0.42]
+>>>>>>> f89b074629619013c6a7861028c5bbd0d05cc044
 
     image_mat = np.ones((15, 15, 3)) * grey
 
