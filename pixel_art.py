@@ -7,7 +7,7 @@ def define_bee():
     # define some colours
     black = [0, 0, 0]
     yellow = [1.0, 0.85, 0]
-    grey = [0.65] * 3
+    grey = [0.44] * 3
 
     # specify which pixels are which colour
     image_mat[7:11, 2] = black
@@ -19,9 +19,10 @@ def define_bee():
     image_mat[7:11, 13] = black
     image_mat[4:6, 5:11] = grey
     image_mat[3, 6:10] = grey
-    
+
     return image_mat
-    
+
+
 def define_butterfly():
     import numpy as np
 
@@ -30,13 +31,14 @@ def define_butterfly():
 
     # define some colours
     black = [0, 0, 0]
-    blue = [0.2, 0.4, 0.8]
+    other = [0.2, 0.4, 0.8]
+    other = [0.5, 0.4, 0.2]
 
     # specify which pixels are which colour
     c = 8
     # centre of butterfly
     image_mat[2:13, c] = black
-    
+
     # generate mirror image at the same time
     for i in [-1, 1]:
         # outline
@@ -56,20 +58,19 @@ def define_butterfly():
         image_mat[13, [i*j+c for j in [4, 3]]] = black
         image_mat[12, i*2+c] = black
         image_mat[11, i*1+c] = black
-        
-        # fill in the centre line by line
-        image_mat[3, [i*j+c for j in [4, 5]]] = blue
-        image_mat[4, [i*j+c for j in range(2,7)]] = blue
-        image_mat[5:7, [i*j+c for j in range(1,7)]] = blue
-        image_mat[7, [i*j+c for j in range(2,5)]] = blue
-        image_mat[8, i*1+c] = blue
-        image_mat[9, [i*j+c for j in range(1,5)]] = blue
-        image_mat[10, [i*j+c for j in range(1,6)]] = blue
-        image_mat[11, [i*j+c for j in range(2,6)]] = blue
-        image_mat[12, [i*j+c for j in range(3,5)]] = blue
-    
-    return image_mat
 
+        # fill in the centre line by line
+        image_mat[3, [i*j+c for j in [4, 5]]] = other
+        image_mat[4, [i*j+c for j in range(2, 7)]] = other
+        image_mat[5:7, [i*j+c for j in range(1, 7)]] = other
+        image_mat[7, [i*j+c for j in range(2, 5)]] = other
+        image_mat[8, i*1+c] = other
+        image_mat[9, [i*j+c for j in range(1, 5)]] = other
+        image_mat[10, [i*j+c for j in range(1, 6)]] = other
+        image_mat[11, [i*j+c for j in range(2, 6)]] = other
+        image_mat[12, [i*j+c for j in range(3, 5)]] = other
+
+    return image_mat
 
 
 def plot_image(image):
@@ -78,8 +79,8 @@ def plot_image(image):
     plt.axis('off')
     plt.imshow(image)
     plt.show()
-    
-    
+
+
 bee = define_bee()
 plot_image(bee)
 butterfly = define_butterfly()
