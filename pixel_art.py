@@ -1,4 +1,4 @@
-def define_bee():
+def define_smile():
     import numpy as np
 
     # make an empty numpy array for storing the image
@@ -20,7 +20,23 @@ def define_bee():
     image_mat[7:11, 13] = black
     image_mat[4:6, 5:11] = cyan
     image_mat[3, 6:10] = cyan
+    pink = [1, 0.753, 0.796]
+    grey = [0.05] * 3
+
+    image_mat = np.ones((15, 15, 3)) * grey
+
+    # specify which pixels are which colour
+    image_mat[3:12, 3:12] = yellow
+    image_mat[4:11, 2:13] = yellow
+    image_mat[5:10, 1:14] = yellow
     
+    image_mat[5:7, 5:7] = black  
+    image_mat[5:7, 9:11] = black
+    
+    image_mat[9, 5:11] = black
+    image_mat[10, 6:10] = black
+    image_mat[11, 7:9] = black
+
     return image_mat
     
 def define_butterfly():
@@ -79,9 +95,9 @@ def plot_image(image):
     plt.axis('off')
     plt.imshow(image)
     plt.show()
-    
-    
-bee = define_bee()
-plot_image(bee)
+
+
+smile = define_smile()
+plot_image(smile)
 butterfly = define_butterfly()
 plot_image(butterfly)
